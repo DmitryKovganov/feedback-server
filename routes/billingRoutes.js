@@ -8,12 +8,12 @@ module.exports = app => {
             amount: 500,
             currency: 'usd',
             description: '5$ for 5 credits',
-            course: req.body.id
+            source: req.body.id
         });
 
-        req.user.cdredits += 5;
+        req.user.credits += 5;
         const user = await req.user.save();
 
-        req.send(user);
+        res.send(user);
     });
 };
